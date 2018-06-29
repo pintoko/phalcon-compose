@@ -1,0 +1,19 @@
+<table>
+	<tr>
+		<td>id</td>
+		<td>name</td>
+		<td>email</td>
+		<td>action</td>
+	</tr>
+	<?php foreach($users as $user): ?>
+	<tr>
+		<td><?php echo $user->id ;?></td>
+		<td><?php echo $user->name ;?></td>
+		<td><?php echo $user->email ;?></td>
+		<td>
+			<?php echo $this->tag->linkTo('signup/edit/'.$user->id, 'Edit') ;?>
+			| <?php echo $this->tag->linkTo('signup/delete/'.$user->id, 'Delete') ;?>
+		</td>
+	</tr>
+	<?php endforeach; ?>
+</table>

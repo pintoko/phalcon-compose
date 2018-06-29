@@ -1,0 +1,32 @@
+<h2>Edit User</h2>
+
+<?php if(isset($success)): ?>
+	<?php if($success):?>
+		<h3>Success Edit</h3>
+		<?php echo $this->tag->linkTo('signup/users', 'User List'); ?>
+	<?php elseif(isset($messages)): ?>
+		<?php foreach ($messages as $message): ?>
+			<?php echo $message; ?><br/>
+		<?php endforeach; ?>
+	<?php endif; ?>
+<?php else: ?>
+
+	<?php echo $this->tag->form('signup/edit'); ?>
+		<?php echo $this->tag->hiddenField(['id', 'value' => $user->id]); ?>
+		<p>
+			<label for="name">Name</label>
+			<?php echo $this->tag->textField(['name', 'value' => $user->name]); ?>
+		</p>
+
+		<p>
+			<label for="email">Email</label>
+			<?php echo $this->tag->textField(['email', 'value' => $user->email]); ?>
+		</p>
+
+		<p>
+			<?php echo $this->tag->submitButton('Save'); ?>
+		</p>
+
+	<?php echo $this->tag->endForm(); ?>
+
+<?php endif; ?>
